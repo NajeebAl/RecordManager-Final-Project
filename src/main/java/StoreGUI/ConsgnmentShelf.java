@@ -84,6 +84,7 @@ public class ConsgnmentShelf  extends  JFrame{
         allConsgmnetListModel.addElement(newRecord);
         //System.out.println(newRecord);
             //System.out.println(recodID);
+        //add
 
 
 
