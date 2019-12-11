@@ -56,10 +56,10 @@ public class DB {
     public void createtable () {
         try (Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)) {
             Statement statement = conn.createStatement();
-            //String dropTable = "DROP TABLE consignors";
+            //String dropTable = "DROP TABLE records";
             String createTableConsignors = "CREATE TABLE IF NOT EXISTS consignors (Name TEXT, Phone INTEGER, Email TEXT)";
             //statement.execute(dropTable);
-            String createTableRecord = "CREATE TABLE IF NOT EXISTS records (ARTIST TEXT, title TEXT, QUANTITY INTEGER, SALEPRICE INTEGER)";
+            String createTableRecord = "CREATE TABLE IF NOT EXISTS records (ARTIST TEXT, title TEXT, QUANTITY INTEGER, SALEPRICE INTEGER, recordID INTEGER )";
             statement.execute(createTableConsignors);
             statement.execute(createTableRecord);
 
@@ -79,7 +79,7 @@ public class DB {
             Statement statement = conn.createStatement();
             String createTableSql = "CREATE TABLE IF NOT EXIST consignors (Name TEXT, Phone INTEGER)";
             statement.execute(createTableSql);
-           // int id = record.getConsgrID();
+            int id = record.getConsgrID();
             String search = "Select consgrID from records where consgrID = ? ";
             ResultSet rs = statement.executeQuery(search);
             System.out.println(rs);
@@ -190,7 +190,7 @@ public class DB {
         try (Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)){
            // ARTIST TEXT, title TEXT, QUANTITY INTEGER, SALEPRICE INTEGER
 
-            String addConsgnmtInfo = "INSERT INTO  records ( ARTIST , title , QUANTITY , SALEPRICE  ) VALUES (  ?,?, ?, ?) ";
+            String addConsgnmtInfo = "INSERT INTO  records ( ARTIST , title , QUANTITY , SALEPRICE, recordID  ) VALUES (  ?,?, ?, ?, ?) ";
             PreparedStatement addConsgrDetails = conn.prepareStatement(addConsgnmtInfo);
 
 
@@ -216,7 +216,7 @@ public class DB {
 
         try(Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)){
             Statement statement = conn.createStatement();
-            String consmntRecord = "SELECT  recordID,  artist, title, quantity, salePrx,  receivedDate FROM records  " ;
+            String consmntRecord = "SELECT  recordID,  artist, title, quantity, salePrice FROM records  " ;
             ResultSet rsAll = statement.executeQuery(consmntRecord);
             while (rsAll.next()){
                 int recordID = rsAll.getInt("recordID");
@@ -224,9 +224,9 @@ public class DB {
                  String artistNAme = rsAll.getString("artist");
                 String title = rsAll.getString("title");
                 int quantity = rsAll.getInt("quantity");
-                double salePrx = rsAll.getDouble("salePrx");
-                Date date = rsAll.getDate("receivedDate");
-                Record record = new Record(recordID, artistNAme, title, quantity, salePrx, date);
+                double salePrice = rsAll.getDouble("salePrice");
+                //Date date = rsAll.getDate("receivedDate");
+                Record record = new Record(recordID, artistNAme, title, quantity, salePrice );
                 LinkedList<Record> receivedData = new LinkedList<Record>();
                 receivedData.add(record);
                 ConsgnmentShelf.dumpData(receivedData, record);

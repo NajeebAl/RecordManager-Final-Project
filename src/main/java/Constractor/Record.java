@@ -78,12 +78,12 @@ public class Record {
 
     //Uploading consignment into ConsgnmentShelf class
    // recordID | artist    | title   | quantity | salePrx | Date
-    public Record(int recordID, String artist, String title, int quantity, double salePrx, java.sql.Date smDate){
+    public Record(int recordID, String artist, String title, int quantity, double salePrx){
         this.quantity = quantity;
         this.artist = artist;
         this.title = title;
         this.salePrx = salePrx;
-        this.smDate = smDate;
+        //this.smDate = smDate;
         this.recordID = recordID;
         //this.consgrID = consgrID;
     }

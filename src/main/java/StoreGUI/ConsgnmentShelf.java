@@ -80,7 +80,7 @@ public class ConsgnmentShelf  extends  JFrame{
         int quantity = record.getQuantity();
         double salePrx = record.getSalePrx();
         java.sql.Date date = record.getSmDate();
-        Record newRecord = new Record(recordID, artist, title, quantity, salePrx, date);
+        Record newRecord = new Record(recordID, artist, title, quantity, salePrx);
         allConsgmnetListModel.addElement(newRecord);
         //System.out.println(newRecord);
             //System.out.println(recodID);
