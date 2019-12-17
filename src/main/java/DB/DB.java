@@ -10,8 +10,7 @@ import java.util.LinkedList;
 
 
 public class DB {
-
-    //private static final String JDBC_Driver = "com.mysql.cj.jdbc.Driver";
+    //creating connection
     private static final String DB_CONNECTION_URL = "jdbc:sqlite:recordstore.sqlite";
 
     private static Connection conn = null;
@@ -19,24 +18,8 @@ public class DB {
     private ResultSet rs = null;
 
     public DB() {
-        //try(Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)){
-            //Statement statement = conn.createStatment())
-       // }
 
-
-
-
-
-        //try {
-           // Class.forName(JDBC_Driver);
-       // } catch (ClassNotFoundException cnfe) {
-            //System.out.println("Can't instantiate driver class; " +
-                    //"check you have drives and classpath configured" +
-                    //" correctly?");
-            //cnfe.printStackTrace();
-            //System.exit(-1);  //No driver? Need to fix before anything else will work. So quit the program
-
-        //}
+        //exception handler
         try {
             conn = DriverManager.getConnection(DB_CONNECTION_URL);
             System.out.println("Your connection is OK");
@@ -52,7 +35,9 @@ public class DB {
         }
 
     }
-
+//creating two tables
+    //one for records,
+    //one for consignors
     public void createtable () {
         try (Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)) {
             Statement statement = conn.createStatement();
@@ -72,9 +57,10 @@ public class DB {
 
 
 
-
+//creating each consigonr with unique ID NUMBER
 
     public void getConsgrWithID(Record record) {
+
         try(Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)){
             Statement statement = conn.createStatement();
             String createTableSql = "CREATE TABLE IF NOT EXIST consignors (Name TEXT, Phone INTEGER)";
@@ -92,7 +78,7 @@ public class DB {
         }
 
     }
-
+//adding the consignot information
     public void addingConsgrInfo(Record rcd) {
         try(Connection cnn = DriverManager.getConnection(DB_CONNECTION_URL)){
             String addConsgrDetails = "INSERT INTO consignors (Name, phone, email) VALUES ( ?, ?, ?)";
@@ -159,7 +145,7 @@ public class DB {
                  return null;
         }
     }
-
+//getting consigonrs from data
     public void getConsgrsFromData() {
         try(Connection cnn = DriverManager.getConnection(DB_CONNECTION_URL)){
             Statement statement = cnn.createStatement();
@@ -211,7 +197,7 @@ public class DB {
             sql.printStackTrace();
         }
     }
-
+//getting data from the Database
     public void getDataFromDB( ) {
 
         try(Connection conn = DriverManager.getConnection(DB_CONNECTION_URL)){
@@ -285,33 +271,5 @@ public class DB {
     }
 
 
-/*
-    public void sold_recordsUploading( ) {
-        //| saleID | recordID | quantity | salePrx | soldDate
-        try(Connection cnn = DriverManager.getConnection(DB_CONNECTION_URL, USER, PASSWORDS)){
-            Statement statement = cnn.createStatement();
-            String soldRecords = "Select  saleID, recordID, quantity, salePrx, soldDate FROM  sales ";
-            ResultSet rsAll = statement.executeQuery(soldRecords);
-            while(rsAll.next()){
 
-                int saleID = rsAll.getInt("saleID");
-                int recordID = rsAll.getInt("recordID");
-                int quantity = rsAll.getInt("quantity");
-                double salePrx = rsAll.getDouble("salePrx");
-               java.sql. Date date = rsAll.getDate("soldDate");
-                Record record = new Record(saleID, recordID,  quantity, salePrx, date);
-                LinkedList<Record> soldItems = new LinkedList<Record>();
-                soldItems.add(record);
-                ConsgnmentShelf.soldData(soldItems, record);
-
-            }
-        }catch (SQLException sql ){
-            sql.getCause();
-            sql.printStackTrace();
-            sql.getErrorCode();
-        }
-
-        
-    }
-    */
 }

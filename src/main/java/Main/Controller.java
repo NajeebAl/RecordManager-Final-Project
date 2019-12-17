@@ -5,6 +5,7 @@ import DB.DB;
 import StoreGUI.MainWindow;
 
 import java.util.ArrayList;
+//THIS setsup main window data base and create
 
 
 public class Controller {
@@ -16,7 +17,7 @@ public class Controller {
         db.createtable();
 
     }
-
+//this the arraylist that creates record and gets data from database
     public static ArrayList<Record> getDateFromDatabase() {
 
 
@@ -63,11 +64,7 @@ public class Controller {
     }
 
    
-/*
-    public static void loadSoldTables( ) {
-        db.sold_recordsUploading();
-    }
-    */
+
 
 
 }

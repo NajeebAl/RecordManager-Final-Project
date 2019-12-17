@@ -140,11 +140,7 @@ public class MainWindow  extends JFrame{
         makePaymentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // String name = SubWindow1.consgrNamesListComboBox.getSelectedItem().toString();
 
-              // SubWindow1 subWindow1 = new SubWindow1(MainWindow.this);
-              // String name = SubWindow1.consgrNamesListComboBox.getSelectedItem().toString();
-               // System.out.println(name);
             }
         });
     }

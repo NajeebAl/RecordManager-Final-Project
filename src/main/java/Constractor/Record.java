@@ -2,7 +2,7 @@ package Constractor;
 
 import java.util.Date;
 
-
+//creating the consginor record
 
 public class Record {
     int  consgrID;
@@ -83,9 +83,8 @@ public class Record {
         this.artist = artist;
         this.title = title;
         this.salePrx = salePrx;
-        //this.smDate = smDate;
         this.recordID = recordID;
-        //this.consgrID = consgrID;
+
     }
 
 
@@ -161,7 +160,7 @@ public class Record {
     public Record(String name, String phone , String email){
         this.consgr_name = name;
         this.consgr_phoneNumber = phone;
-        //this.consgr_Email = email;
+        this.consgr_Email = email;
 
     }
     public Record(int recorID, int consgrID, double salePrx, java.sql.Date date){
@@ -178,17 +177,6 @@ public class Record {
 
 
 
-    /*
 
-
-    public Record(int quantity, String artist, String title, double salePrx, java.sql.Date smDate) {
-        this.quantity = quantity;
-        this.artist = artist;
-        this.title = title;
-        this.salePrx = salePrx;
-        this.smDate = smDate;
-
-    }
-    */
 
 }

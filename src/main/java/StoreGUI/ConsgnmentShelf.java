@@ -90,19 +90,6 @@ public class ConsgnmentShelf  extends  JFrame{
 
 
     }
-    /*
 
-    public static void soldData(LinkedList<Record> soldItems, Record record) {
-       // System.out.println(record);
-        int saleID = record.getSaleID();
-        int recordID = record.getRecordID();
-        int quantity = record.getQuantity();
-        double salePrx = record.getSalePrx();
-        java.sql.Date date = record.getSmDate();
-        Record saleRecord  = new Record(saleID, recordID,  quantity, salePrx, date);
-        //saleRecord = saleRecord.printOnSalesdatabase();
-        //System.out.println(r.salesPrintingInJlist());
-        allSoldListModel.addElement(saleRecord );
-    }
-    */
+
 }
