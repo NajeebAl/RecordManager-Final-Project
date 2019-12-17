@@ -77,6 +77,7 @@ public class Record {
     java.sql.Date smDate= new java.sql.Date(date.getTime());
 
     //Uploading consignment into ConsgnmentShelf class
+    //
    // recordID | artist    | title   | quantity | salePrx | Date
     public Record(int recordID, String artist, String title, int quantity, double salePrx){
         this.quantity = quantity;
