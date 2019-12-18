@@ -8,6 +8,7 @@ import java.util.ArrayList;
 //THIS setsup main window data base and create
 
 
+
 public class Controller {
      static DB db ;
      static Record record;
