@@ -10,7 +10,7 @@ parameterized statements.
 *the record ID, artist, title, quantity and the sale price doesn't load any data.
 #cool features
 * it validates the user inputs
-* pop up messages telling what to do for the user.
+* pop up messages telling what to do for the user..
 
 
  
